@@ -200,6 +200,7 @@ curl https://dv-g3b-aaa-noct-emudhra.we-have-a-problem.com/</pre>
     <tr><td>RHEL ca-certificates</td><td><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2556046" class="pending">Pending for RHEL 7</a>,<br><a href="https://access.redhat.com/errata/RHSA-2026:88459">2026.2.92_v9.0.319-81.3.el8_10</a>,<br><a href="https://access.redhat.com/errata/RHSA-2026:88459">2026.2.92_v9.0.319-90.3.el9_8</a>,<br><a href="https://access.redhat.com/errata/RHSA-2026:88455">2026.2.92_v9.0.319-100.3.el10_2</a></td></tr>
     <tr><td>Ubuntu ca-certificates</td><td><a href="https://bugs.launchpad.net/ubuntu/+source/ca-certificates/+bug/2171507">20260816ubuntu0.22.04.1,<br>20260816ubuntu0.24.04.1,<br>20260816ubuntu0.26.04.1,<br>20260816ubuntu0.26.10.1</a></td></tr>
     <tr><td>Bottlerocket</td><td><a href="https://github.com/bottlerocket-os/bottlerocket/issues/4976" class="pending">pending</a></td></tr>
+    <tr><td>OpenHarmony/HarmonyOS NEXT</td><td><a href="https://gitcode.com/openharmony/security_certificate_manager/pull/722" class="pending">pending</a></td></tr>
   </tbody>
 </table>
 
@@ -395,7 +396,15 @@ update-ca-trust</pre>
 </ul>
 <p>The other eMudhra and Comodo certificates in the list are not affected and should be left enabled. Disabling AAA Certificate Services may cause errors on some websites that still chain to it. The roots can be re-enabled from the same screen once the device has received an update.</p>
 
-<p>Some Android devices (e.g. Huawei's HarmonyOS) may not allow users to disable system-installed roots.</p>
+<p>Some Android devices may not allow users to disable system-installed roots.</p>
+
+<p>If you are using HarmonyOS 4.3 and earlier, you can disable system-installed roots in the same way as on other Android-based systems.</p>
+</details>
+
+<details class="workaround" id="openharmony">
+<summary><h4>OpenHarmony</h4></summary>
+
+<p>OpenHarmony-based HarmonyOS does not allow users to disable system-installed roots. No user-side workaround is available on these devices until the patched version ships.</p>
 </details>
 
 <details class="workaround" id="netbsd">
