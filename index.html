@@ -332,11 +332,8 @@ sudo chmod 644 "$F"</pre>
   -e 's|^mozilla/Comodo_AAA_Services_root.crt|!&amp;|' \
   /etc/ca-certificates.conf &amp;&amp; update-ca-certificates</pre>
 
-<p>If you use the Java certificate store, it might fall out of sync with your system certificate store. To sync the stores, run as root:</p>
-<pre translate="no">
-touch /var/lib/ca-certificates-java/fresh
-dpkg-reconfigure ca-certificates-java
-</pre>
+<p>If you use OpenJDK from Debian or Ubuntu packages, the Java keystore at <code translate="no">/etc/ssl/certs/java/cacerts</code> is <strong>not</strong> refreshed when the system trust store changes, due to a <a href="https://bugs.debian.org/1069251">long-standing bug</a> in <code translate="no">ca-certificates-java</code>. This applies both to the workaround above and to the updated <code translate="no">ca-certificates</code> package. Following <a href="https://openjdk.org/emudhra#debian">OpenJDK's guidance</a>, remove and recreate the keystore as root:</p>
+<pre translate="no">rm -f /etc/ssl/certs/java/cacerts &amp;&amp; update-ca-certificates --fresh</pre>
 
 <p>On Alpine, run as root:</p>
 <pre translate="no">apk add ca-certificates &amp;&amp;
