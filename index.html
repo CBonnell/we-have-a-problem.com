@@ -473,6 +473,18 @@ for (const group of document.querySelectorAll('details.group')) {
 document.getElementById('lang-ja').addEventListener('click', () => {
   try { localStorage.removeItem('lang'); } catch (e) {}
 });
+
+// Keep the URL hash in step with the open section, so it can be copied and
+// shared. Closing the section clears the hash again.
+for (const details of document.querySelectorAll('details[id]')) {
+  details.addEventListener('toggle', () => {
+    if (details.open) {
+      history.replaceState(null, '', '#' + details.id);
+    } else if (location.hash === '#' + details.id) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  });
+}
 </script>
 </body>
 </html>
