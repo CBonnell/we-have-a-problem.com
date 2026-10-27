@@ -65,6 +65,8 @@
     th { background: #f5f5f5; font-weight: bold; }
     .patched { width: auto; }
     details.workaround, details.group { margin-top: 1rem; }
+    details.group { margin-bottom: 1rem; }
+    details.group > table { margin-bottom: 0; }
     details.workaround > summary, details.group > summary { cursor: pointer; }
     details.workaround > summary > h4, details.group > summary > h4 { display: inline; margin: 0; }
     details.workaround[open] > summary, details.group[open] > summary { margin-bottom: 1rem; }
@@ -173,8 +175,6 @@ curl https://dv-g3b-aaa-noct-emudhra.we-have-a-problem.com/</pre>
 <p>Users should update their browsers and operating systems to the latest versions as soon as possible.</p>
 
 <h3 id="developers"><a href="#developers">Who has patched?</a></h3>
-
-<p>Pending entries are listed at the end of each group. Open a group to see its entries.</p>
 
 <details class="group" id="patched-os">
 <summary><h4>Operating systems and distributions</h4></summary>
